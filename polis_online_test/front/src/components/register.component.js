@@ -38,13 +38,13 @@ const vusername = value => {
 
 const vpassword = value => {
   let dFlag = /\d/.test(value);
-  let lcFlag = 0;
-  let ucFlag = 0;
+  let lcFlag = /([a-z])/.test(value);
+  let ucFlag = /\W/.test(value);
   for (let i = 0; i < value.length; i++) {
-    if (!/\d/.test(value[i]) && value[i] === value[i].toLowerCase()) {
+    if (/\w/.test(value[i]) && value[i] === value[i].toLowerCase()) {
       lcFlag = 1;
     }
-    if (!/\d/.test(value[i]) && value[i] === value[i].toUpperCase()) {
+    if (/\w/.test(value[i]) && value[i] === value[i].toUpperCase()) {
       ucFlag = 1;
     }
   }
